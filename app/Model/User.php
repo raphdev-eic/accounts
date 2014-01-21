@@ -294,11 +294,10 @@ class User extends AppModel {
     public function ListPack(){
     	$list = $this->Pack->find('list');
     	return $list;
-    } 
-
+    }
 
     //regle de validation des données
-    
+
     public $validate = array(
 
     'username'=>array(
@@ -342,8 +341,8 @@ class User extends AppModel {
           'message'=>'Renseignez une valeur',
           'allowEmpty'=>false,
           'required'=>true
-    ),    
-    'lastname'=>array(
+    ),
+        'lastname'=>array(
           'rule'=>'notEmpty',
           'message'=>'Renseignez une valeur',
           'allowEmpty'=>false,
@@ -365,7 +364,7 @@ class User extends AppModel {
     );
 
     //generation de code d'inscription
-    
+
     public function genarateCodeinc( $num = 12 ){
             $resultat = array();
             $user ="";
@@ -374,12 +373,12 @@ class User extends AppModel {
                 for($i=0; $i<$num; $i++) {
                 $user .= $username[rand()%strlen($username)];
                 }
-            $resultat=$user; 
+            $resultat=$user;
             return $resultat;
     }
 
     //generation du key auth
-    
+
     public function generateKeyAuth( $num = 32){
             $resultat = array();
             $user ="";
@@ -398,6 +397,6 @@ class User extends AppModel {
 		}
 		return false;
     }
-    
+
 
 }

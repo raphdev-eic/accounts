@@ -23,19 +23,19 @@
 
         <?php echo $this->Html->image('icon_auth.png',array('class'=>'icon-auth')); ?>
 
-      	<?php echo $this->Form->create('User',array('class'=>'form-signin','inputDefaults'=>array('div'=>false,'label'=>false))); ?>
+      	<?php echo $this->Form->create('User',array('class'=>'form-signin')); ?>
 
-        <h2 class="form-signin-heading">Connectez à votre compte EiC</h2>
+            <h2 class="form-signin-heading">Connectez à votre compte EiC</h2>
 
-        <div class="login-wrap">
-            <?php echo $this->Form->input('email',array('class'=>'form-control','placeholder'=>'Adresse email','label'=>false,'autofocus')); ?>
+            <div class="login-wrap">
+                <?php echo $this->Form->input('email',array('class'=>'form-control','placeholder'=>'Adresse email','label'=>false,'autofocus')); ?>
 
-            <?php echo $this->Form->input('password',array('class'=>'form-control','placeholder'=>'Mot de passe','label'=>false));?>
-            
-            <label class="checkbox">
-                <span class="pull-right"> <a href="#"> Mot de passe oublier?</a></span>
-            </label>
-            <?php echo $this->Form->button('connexion',array('class'=>'btn btn-lg btn-login btn-block')); ?>
-        </div>
+                <?php echo $this->Form->input('password',array('class'=>'form-control','placeholder'=>'Mot de passe','label'=>false));?>
+
+                <label class="checkbox">
+                    <span class="pull-right"> <a href="#"> Mot de passe oublier?</a></span>
+                </label>
+                <?php echo $this->Form->button('Connexion',array('class'=>'btn btn-lg btn-login btn-block')); ?>
+            </div>
 
        <?php echo $this->Form->end(); ?>

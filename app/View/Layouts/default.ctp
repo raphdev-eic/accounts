@@ -7,7 +7,7 @@
     <?php echo $this->Html->meta('author','eic corporation'); ?>
     <?php echo $this->Html->meta('keyword','dashboard eic corporation, platform'); ?>
     <?php echo $this->Html->meta('favicon.ico','/img/favicon.png',array('type' => 'icon')); ?> 
-    <title>Inscription | EiC Corporation</title>
+    <title><?php echo $this->fetch('title'); ?></title>
 
     <!-- Bootstrap core CSS -->
     <?php echo $this->Html->css('bootstrap.min'); ?>
@@ -26,10 +26,17 @@
       <?php echo $this->Html->script('respond.min'); ?>
     <![endif]-->
   </head>
- <body>
-  <section>
+   <body class="body-default">
+  <section id="main-content">
          <?php echo $this->fetch('content'); ?>
   </section>
+      <!--footer start-->
+      <footer>
+        <div class="text-center">Copyright <?php echo date('Y'); ?> &copy;
+         EiC Corporation. Tous droits réservés | Centre d'assistance des investisseurs | <a href="#">conditions d'utilisation</a>  | <a href="#">Engagement de confidentialité</a>
+       </div>
+      </footer>
+      <!--footer end-->
     <!-- js placed at the end of the document so the pages load faster -->
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

@@ -7,7 +7,7 @@ class UsersController extends AppController{
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow(array('statuteBook','iforget'));
+		$this->Auth->allow(array('statuteBook','iforget','iforgetChangePass'));
 		if($this->Auth->loggedIn()){
 			$this->Auth->allow('CookieCheck');
 		}
@@ -17,10 +17,10 @@ class UsersController extends AppController{
 		}
 	}
 
-/**
- * [login description]
- * @return [type] [description]
- */
+	/**
+	 * [login description]
+	 * @return [type] [description]
+	 */
     public function login() {
         if($this->request->is('post')){
            $user = $this->Auth->identify($this->request, $this->response);
@@ -66,10 +66,19 @@ class UsersController extends AppController{
 		}
 	}
 
+	/**
+	 * page de lecture des conditions d'utilisation
+	 * page de lecture des lois de confidentialité
+	 */
+
 	public function agrement(){
          $this->layout = 'default';
 	}
 
+    /**
+     * [info description]
+     * @return [type] [description]
+     */
 	public function info(){
       $this->layout = 'default';
       if($this->Session->check('IdUser')){
@@ -91,6 +100,11 @@ class UsersController extends AppController{
 	        $this->set(compact('user'));
         }
 	}
+
+     /**
+      * [signin description]
+      * @return [type] [description]
+      */
 
 	public function signin(){
 			$this->layout = 'default';
@@ -119,10 +133,27 @@ class UsersController extends AppController{
 	        }
 	}
 
+     /**
+      * [CookieCheck description]
+      */
 	public function CookieCheck(){
 		if($this->Auth->loggedIn()){
             $this->Cookie->write('EicAuth', $this->Session->read('Auth.User.id'),true, 3600 * 24 * 3);
             $this->redirect(Configure::read('platform'));
 		}
+	}
+
+	public function iforget(){
+      $this->layout = 'default';
+	}
+
+    public function iforgetChangePass($key = null, $keyid = null) {
+    	//verifion que les clé existe bien dans l'url
+    	if(!$this->request->query['key']){
+    		throw new BadRequestException("Error Processing Request", 400);
+    	}
+    	if(!$this->request->query['keyid']){
+    		throw new BadRequestException("Error Processing Request", 400);
+    	}
 	}
 }

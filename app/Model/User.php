@@ -210,6 +210,19 @@ class User extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+		),
+		'Token'=>array(
+			'className' => 'Token',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		)
 	);
 
@@ -353,5 +366,29 @@ class User extends AppModel {
 		    return true;
 		}
 		return false;
+    }
+
+    public function detectIOS(){
+		if (ereg("Win", getenv("HTTP_USER_AGENT")))
+		  $os = "Windows";
+		elseif ((ereg("Mac", getenv("HTTP_USER_AGENT"))) || (ereg("PPC", getenv("HTTP_USER_AGENT"))))
+		  $os = "Mac";
+		elseif (ereg("Linux", getenv("HTTP_USER_AGENT")))
+		  $os = "Linux";
+		elseif (ereg("FreeBSD", getenv("HTTP_USER_AGENT")))
+		  $os = "FreeBSD";
+		elseif (ereg("SunOS", getenv("HTTP_USER_AGENT")))
+		  $os = "SunOS";
+		elseif (ereg("IRIX", getenv("HTTP_USER_AGENT")))
+		  $os = "IRIX";
+		elseif (ereg("BeOS", getenv("HTTP_USER_AGENT")))
+		  $os = "BeOS";
+		elseif (ereg("OS/2", getenv("HTTP_USER_AGENT")))
+		  $os = "OS/2";
+		elseif (ereg("AIX", getenv("HTTP_USER_AGENT")))
+		  $os = "AIX";
+		else
+		  $os = "Autre";
+		return $os;
     }
 }

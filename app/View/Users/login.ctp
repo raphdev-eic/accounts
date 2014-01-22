@@ -25,7 +25,7 @@
             <?php echo $this->Form->input('User.email',array('class'=>'form-control','placeholder'=>'Adresse email','label'=>false,'autofocus')); ?>
             <?php echo $this->Form->input('User.password',array('class'=>'form-control','placeholder'=>'Mot de passe','label'=>false));?>
             <label class="checkbox">
-                <span class="pull-right"> <a href="#"> Mot de passe oublier?</a></span>
+                <span class="pull-right"><strong><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'iforget')); ?>"> Vous avez un soucis?</a></strong></span>
             </label>
             <?php echo $this->Form->button('connexion',array('class'=>'btn btn-lg btn-login btn-block')); ?>
         </div>

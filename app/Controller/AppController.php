@@ -1,7 +1,7 @@
 <?php
 App::uses('Controller', 'Controller');
 class AppController extends Controller {
-    public $helpers = array('Form','Html','Time','Text');
+
     public $components = array('Session',
     	'Cookie'=>array(
     		    'name'=>'EicCorporation',
@@ -10,14 +10,18 @@ class AppController extends Controller {
     		    'key'=>'qSI232qs*&11~_+!@#HKAv!@*(XSL#$%)asGb$@is~#sXOw!adre@34S^',
     		    'httpOnly'=>true
     	),
-    	'Auth'=>array(
-				'authenticate' => array(
-				    'Form' => array(
-				        'fields' => array('username' => 'email'),
-				        'scope'=>array('User.status'=>1)
-				)
-			)
-    	)
+        'Auth' => array(
+            'authenticate'=>array(
+                'Form' => array(
+                    'userModel' =>'User',
+                    'fields' => array(
+                        'username' => 'email',
+                        'password' => 'password'
+                    ),
+                    'scope'=>array('User.status'=>1)
+                )
+            )
+        )
     );
 
 	public function beforeFilter(){
@@ -27,3 +31,4 @@ class AppController extends Controller {
         }
 	}
 }
+

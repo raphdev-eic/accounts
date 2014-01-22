@@ -1,42 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
-/**
- * User Model
- *
- * @property Compte $Compte
- * @property Profile $Profile
- * @property Rank $Rank
- * @property Team $Team
- * @property Domaine $Domaine
- * @property Role $Role
- * @property Program $Program
- * @property Country $Country
- * @property City $City
- * @property Pack $Pack
- * @property User $ParentUser
- * @property Avatar $Avatar
- * @property Bordero $Bordero
- * @property Comission $Comission
- * @property Devi $Devi
- * @property Innoice $Innoice
- * @property Last $Last
- * @property Membership $Membership
- * @property Notification $Notification
- * @property Transaction $Transaction
- * @property Ugrade $Ugrade
- * @property Upart $Upart
- * @property User $ChildUser
- */
 class User extends AppModel {
-
-
-	//The Associations below have been created with all possible keys, those that are not needed can be removed
-
-/**
- * hasOne associations
- *
- * @var array
- */
 	public $hasOne = array(
 		'Compte' => array(
 			'className' => 'Compte',
@@ -54,11 +18,6 @@ class User extends AppModel {
 		)
 	);
 
-/**
- * belongsTo associations
- *
- * @var array
- */
 	public $belongsTo = array(
 		'Rank' => array(
 			'className' => 'Rank',
@@ -74,6 +33,7 @@ class User extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+
 		'Domaine' => array(
 			'className' => 'Domaine',
 			'foreignKey' => 'domaine_id',
@@ -116,13 +76,9 @@ class User extends AppModel {
 			'fields' => '',
 			'order' => ''
 		)
+
 	);
 
-/**
- * hasMany associations
- *
- * @var array
- */
 	public $hasMany = array(
 		'Avatar' => array(
 			'className' => 'Avatar',
@@ -136,6 +92,7 @@ class User extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
+
 		),
 		'Bordero' => array(
 			'className' => 'Bordero',
@@ -271,10 +228,14 @@ class User extends AppModel {
     	return $list;
     }
 
+
+
     public function ListRole(){
     	$list = $this->Role->find('list');
     	return $list;
     }
+
+
 
     public function ListProgm(){
     	$list = $this->Program->find('list');
@@ -294,13 +255,11 @@ class User extends AppModel {
     public function ListPack(){
     	$list = $this->Pack->find('list');
     	return $list;
-    } 
 
+    }
 
     //regle de validation des données
-    
     public $validate = array(
-
     'username'=>array(
 	    'rule1username'=>array(
 	           'rule'=>'isUnique',
@@ -330,6 +289,7 @@ class User extends AppModel {
           'message'=>"Ce code d'accès est deja utiliser",
           'allowEmpty'=>false,
           'required'=>true
+
     ),
     'key_auth'=>array(
           'rule'=>'isUnique',
@@ -342,18 +302,14 @@ class User extends AppModel {
           'message'=>'Renseignez une valeur',
           'allowEmpty'=>false,
           'required'=>true
-    ),    
+    ),
     'lastname'=>array(
           'rule'=>'notEmpty',
           'message'=>'Renseignez une valeur',
           'allowEmpty'=>false,
           'required'=>true
+
     ),
-    /*'membership'=>array(
-	      'rule'=>'numeric',
-	      'message'=>'Ce valeur doit être numerique',
-	      'required'=>true
-    ),*/
     'parts'=>array(
          'rule'=>'numeric',
          'message'=>'Le nombre de parts doit être numerique'
@@ -365,7 +321,7 @@ class User extends AppModel {
     );
 
     //generation de code d'inscription
-    
+
     public function genarateCodeinc( $num = 12 ){
             $resultat = array();
             $user ="";
@@ -373,13 +329,13 @@ class User extends AppModel {
             srand((double)microtime()*1000000);
                 for($i=0; $i<$num; $i++) {
                 $user .= $username[rand()%strlen($username)];
-                }
-            $resultat=$user; 
+               }
+            $resultat=$user;
             return $resultat;
     }
 
     //generation du key auth
-    
+
     public function generateKeyAuth( $num = 32){
             $resultat = array();
             $user ="";
@@ -398,6 +354,4 @@ class User extends AppModel {
 		}
 		return false;
     }
-    
-
 }

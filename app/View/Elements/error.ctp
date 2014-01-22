@@ -2,5 +2,5 @@
       <button data-dismiss="alert" class="close close-sm" type="button">
           <i class="icon-remove"></i>
       </button>
-      <strong>Une erreur est survenue ! </strong> <?php echo $message; ?>
+       <?php echo $message; ?>
   </div>

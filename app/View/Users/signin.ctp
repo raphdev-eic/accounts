@@ -8,7 +8,7 @@
                         </li>
                         <li id="default-title-1" class="current-step">
                             <div>Step 2</div>
-                        </li>                        
+                        </li>
                         <li id="default-title-2" class="">
                             <div>Step 3</div>
                         </li>

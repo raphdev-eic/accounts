@@ -7,7 +7,11 @@ class UsersController extends AppController{
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		$this->Auth->allow('statuteBook');
+		$this->Auth->allow(array('statuteBook','iforget'));
+		if($this->Auth->loggedIn()){
+			$this->Auth->allow('CookieCheck');
+		}
+
 		if($this->Session->check('IdUser')){
 		   $this->Auth->allow('signin','agrement','info');
 		}
@@ -17,39 +21,23 @@ class UsersController extends AppController{
  * [login description]
  * @return [type] [description]
  */
-	public function login(){
-		$continu[0] = Configure::read('manager');
-		$continu[1] = Configure::read('platform');
-		//16-01-2014 : verifier si un cookie existe
-
-		/*if($this->Cookie->check('EicAuth')){
-			debug('true');
-			var_dump($this->Cookie->check('EicAuth'));
-			die();
-            //$this->Cookie->destroy('EicAuth');
-		}else{
-			debug('false');
-			var_dump($this->Cookie->check('EicAuth'));
-			die();
-		}*/
-
-		if(!empty($this->request->data)){
-			//on test si le login est ok
-            if($this->request->is('post')){
-				if($this->Auth->login()){
-					$this->Cookie->write('EicAuth', $this->Session->read('Auth.User.id'),true, 3600 * 24 * 3);
-					$this->redirect($continu[1]);
-				}else{
-					$this->Session->setFlash('Votre mot de passe ou votre email sont incorrects. <strong>Si vous n\'avez pas encore activé votre compte veuillez allez la page de d\'activation de code en cliquant sur le bouton ci-dessus</strong>', 'error');
-				}
-            }
-		}
-	}
+    public function login() {
+        if($this->request->is('post')){
+           $user = $this->Auth->identify($this->request, $this->response);
+           if($user){
+               $this->Session->write('Auth.User', $user);
+               return $this->redirect(array('controller' => 'Users', 'action' => 'CookieCheck'));
+           }else{
+	        $this->Session->setFlash("<h5><strong> Veuillez confirmer votre mot de passe. </strong><h5><br/> Le mot de passe ou l'adresse email que vous avez saisi est incorrect. Veuillez réessayer ? (Ou vérifier si votre compte est déja activé...)",'error');
+           }
+       }
+    }
 
     /**
      * [statuteBook description]
      * @return [type] [description]
      */
+
 	public function statuteBook(){
 	  if(!empty($this->request->data)){
 	      //verifie si la methone d'envoi de code est post
@@ -120,7 +108,7 @@ class UsersController extends AppController{
                     if($this->Session->check('IdUser')){
                         $this->User->id = $this->Session->read('IdUser');
 
-                        // on sauverge 
+                        // on sauverge
                         if($this->User->save($this->request->data,true,array('username','password','status','domain_id'))){
                             $this->redirect(array('controller'=>'Profiles','action'=>'AddProfil'));
                         }
@@ -129,5 +117,12 @@ class UsersController extends AppController{
 
 	        	}
 	        }
-	}	
+	}
+
+	public function CookieCheck(){
+		if($this->Auth->loggedIn()){
+            $this->Cookie->write('EicAuth', $this->Session->read('Auth.User.id'),true, 3600 * 24 * 3);
+            $this->redirect(Configure::read('platform'));
+		}
+	}
 }

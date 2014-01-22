@@ -1,0 +1,8 @@
+[25-Oct-2013 05:06:56] PHP Fatal error:  Cannot use [] for reading in /home4/eiccorp/public_html/accounts/app/Controller/UsersController.php on line 7
+[21-Nov-2013 14:59:54] PHP Fatal error:  Call to a member function write() on a non-object in /home4/eiccorp/public_html/accounts/app/Controller/AppController.php on line 19
+[05-Dec-2013 11:10:34] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home4/eiccorp/public_html/accounts/app/View/Elements/success.ctp on line 5
+[05-Dec-2013 11:10:43] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home4/eiccorp/public_html/accounts/app/View/Elements/success.ctp on line 5
+[05-Dec-2013 11:10:48] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home4/eiccorp/public_html/accounts/app/View/Elements/success.ctp on line 5
+[05-Dec-2013 11:14:40] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home4/eiccorp/public_html/accounts/app/View/Elements/success.ctp on line 5
+[05-Dec-2013 11:15:59] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home4/eiccorp/public_html/accounts/app/View/Elements/success.ctp on line 5
+[07-Dec-2013 03:08:23] PHP Fatal error:  Class 'Appcontroller' not found in /home4/eiccorp/public_html/accounts/app/Controller/AvatarsController.php on line 3

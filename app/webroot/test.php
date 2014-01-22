@@ -25,6 +25,10 @@ ini_set('display_errors', 1);
  * Use the DS to separate the directories in other defines
  */
 
+if(!defined('RACINE')){
+	define('RACINE', dirname(dirname(dirname(dirname(dirname(__FILE__))))));
+}
+
 if (!defined('DS')) {
 	define('DS', DIRECTORY_SEPARATOR);
 }
@@ -34,6 +38,10 @@ if (!defined('DS')) {
  * a directory layout other than the way it is distributed.
  * When using custom settings be sure to use the DS and do not add a trailing DS.
  */
+
+if(!defined('CAKELIB')){
+   define('CAKELIB', RACINE . DS . 'core' . DS . 'lib' . DS);	
+}
 
 /**
  * The full path to the directory which holds "app", WITHOUT a trailing DS.
@@ -64,6 +72,8 @@ if (!defined('APP_DIR')) {
  * /lib/Cake/Console/Templates/skel/webroot/test.php
  */
 //define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'lib');
+
+define('CAKE_CORE_INCLUDE_PATH', CAKELIB);
 
 /**
  * Editing below this line should not be necessary.

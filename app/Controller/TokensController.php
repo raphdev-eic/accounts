@@ -14,7 +14,6 @@ class TokensController extends AppController{
 
 	public function iforgetPassUser(){
 	     if(!empty($this->request->data)){
-	     	//debug($this->request->data);die();
           //recherche un email existant
           $checkmail = $this->Token->User->find('first',array(
           	'contain'=>array('Token'),
@@ -29,6 +28,7 @@ class TokensController extends AppController{
              //envoi d'un email avec le lien
              if($this->Token->sendmail($checkmail['User'],$link)){
             //creation de l'enregistrement
+                $this->Token->create();
 	            if($this->Token->save(array(
 	            	'key'=>$key,
 	            	'user_id'=>$checkmail['User']['id'],
@@ -40,9 +40,12 @@ class TokensController extends AppController{
 	             	$this->redirect(array('action'=>'notiflash'));
                 }
             }else{
-             $this->Session->setFlash('Une erreur est sur venu lors de votre demande veuillez réessayer','error');
+             $this->Session->setFlash('Une erreur est sur venue lors de votre demande, veuillez réessayer','error');
              $this->redirect($this->referer());
             }
+	    }else{
+           $this->Session->setFlash('Cette adresse email est inexistante, si vous avez oublié votre email entammez la procédure de récupération','error');
+           $this->redirect($this->referer());
 	    }
 	  }
     }

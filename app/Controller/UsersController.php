@@ -147,13 +147,60 @@ class UsersController extends AppController{
       $this->layout = 'default';
 	}
 
-    public function iforgetChangePass($key = null, $keyid = null) {
-    	//verifion que les clé existe bien dans l'url
-    	if(!$this->request->query['key']){
-    		throw new BadRequestException("Error Processing Request", 400);
-    	}
-    	if(!$this->request->query['keyid']){
-    		throw new BadRequestException("Error Processing Request", 400);
-    	}
-	}
+  public function iforgetChangePass($key = null, $keyid = null){
+        $this->layout = 'default';
+        //verifion que les clé existe bien dans l'url
+              if(!isset($this->request->query['key'])){
+                throw new BadRequestException("Error Processing Request", 400);
+                exit();
+              }
+              if(!isset($this->request->query['keyid'])){
+                throw new BadRequestException("Error Processing Request", 400);
+                exit();
+              }
+              //recuperation des données dans la bd
+              $link = $this->User->Token->find('first',array(
+                'conditions'=>array('Token.key'=>$this->request->query['key'],'Token.user_id'=>$this->request->query['keyid'])
+              ));
+               if(!empty($link)){
+                //on verifie le champs active
+                  if($link['Token']['active'] == 0){
+                      //initialisation du id du user et le token id
+                          $this->User->Token->id = $link['Token']['id'];
+                      //on procede a la modification du mot de passe
+                    if($this->request->is('post') && !empty($this->request->data)){
+                        $this->User->set($this->request->data);
+                        $valid = true;
+                        $validationErrors = array();
+                        $pass1 = $this->request->data['User']['password'];
+                        $pass2 = $this->request->data['User']['pass'];
+                          if($pass1 != $pass2) {
+                              $validationErrors['pass'][] ='Mots de passes incorrectes';
+                              $this->User->validationErrors = array_merge($this->User->validationErrors, $validationErrors);
+                              $valid = false;
+                          }else{
+                              $valid = true;
+                          }
+                          if($valid){
+                             $this->request->data['User']['password'] = Security::hash($this->request->data['User']['password'],null,true);
+                                  $this->User->id = $this->request->query['keyid'];
+                                  if($this->User->save($this->request->data,false,array('password'))){
+                                      $this->User->Token->saveField('active','1');
+                                      $this->Session->setFlash('Votre modification a eu un effet de success','success');
+                                      $this->redirect(array('action'=>'login'));
+                                  }
+
+                          }else{
+                            $this->Session->setFlash('Une erreur de vérification de mot de passe est survenue pendant votre modification, veuillez la résoudre avant de continuer', 'error');
+                          }
+                      }
+                  }else{
+                      $this->Session->setFlash('Ce lien a expiré, veuillez retenter la procedure de recuperation de mot de passe','error');
+                      $this->redirect(array('action'=>'login'));
+                  }
+               }else{
+                    throw new BadRequestException("Error Processing Request", 400);
+                    exit();
+               }
+    }
 }

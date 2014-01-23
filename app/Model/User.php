@@ -33,7 +33,6 @@ class User extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
-
 		'Domaine' => array(
 			'className' => 'Domaine',
 			'foreignKey' => 'domaine_id',
@@ -286,10 +285,10 @@ class User extends AppModel {
 	    	)
     ),
     'password'=>array(
-          'rule'=>'notEmpty',
-          'message'=>'Ce champs doit pas rester vide',
-          'allowEmpty'=>false,
-          'required'=>true
+	        'rule'=>'notEmpty',
+	        'message'=>'Ce champs doit pas rester vide',
+	        'allowEmpty'=>false,
+	        'required'=>true
     ),
     'email'=>array(
           'rule'=>'isUnique',
@@ -326,11 +325,7 @@ class User extends AppModel {
     'parts'=>array(
          'rule'=>'numeric',
          'message'=>'Le nombre de parts doit être numerique'
-     ),
-    'pass'=>array(
-    	'rule'=>'CheckPassword',
-    	'message'=>'les mots de passe ne correspond pas'
-    	)
+     )
     );
 
     //generation de code d'inscription
@@ -361,13 +356,6 @@ class User extends AppModel {
             return $resultat;
     }
 
-    public function CheckPassword(){
-		if($this->data[$this->alias]['password'] == Security::hash($this->data[$this->alias]['pass'],null,true)){
-		    return true;
-		}
-		return false;
-    }
-
     public function detectIOS(){
 		if (ereg("Win", getenv("HTTP_USER_AGENT")))
 		  $os = "Windows";
@@ -391,4 +379,5 @@ class User extends AppModel {
 		  $os = "Autre";
 		return $os;
     }
+
 }

@@ -35,8 +35,13 @@ body {
     font-size:13px;
 
 }
-
-
+/*
+page d'erreur
+ */
+.body-404 {
+    background:#324BA0;
+    color: #fff;
+}
 
 ul li {
 
@@ -4438,7 +4443,7 @@ ul.inbox-pagination li {
 
 .body-404 {
 
-    background: #18d4cb;
+    background:#324BA0;
 
     color: #fff;
 

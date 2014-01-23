@@ -1,5 +1,4 @@
 <?php echo $this->assign('title','Eic Coporation | Assistance'); ?>
-<?php echo $this->Session->flash();?>
 <header class="header white-bg">
   <div class="sidebar-toggle-box">
     <div data-original-title="Assistance eic corporation" data-placement="right" class="tooltips"> <?php echo $this->Html->image('icon.png');?>
@@ -16,6 +15,7 @@
          <hr/>
        </div>
        <div class="bordures col-lg-12">
+        <div class="col-lg-10"><?php echo $this->Session->flash();?></div>
          <div class="col-lg-4">
            <h4>Réinitialiser votre mot de passe ou votre identifiant de EiC</h4>
            <p>Si vous avez oublié votre mot de passe ou votre identifiant (adresse email), 
@@ -50,7 +50,7 @@
                                   </div>
                               </div>
                           </div>
-                          <div class="panel panel-default">
+                          <!--<div class="panel panel-default">
                               <div class="panel-heading">
                                   <h4 class="panel-title">
                                       <a class="accordion-toggle link-accordion" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
@@ -78,7 +78,7 @@
                                   </div>
                               </div>
                           </div>
-                      </div>
+                      </div>-->
                       <!--collapse end-->
          </div>
        </div>

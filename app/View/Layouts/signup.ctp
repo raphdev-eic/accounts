@@ -34,9 +34,9 @@
     </div>
   </section>
 <!--footer start-->
-      <footer class="site-footer">
+     <!-- <footer class="site-footer">
         <div class="text-center"><?php echo date('Y'); ?> &copy; EiC Corporation. | Centre d'authifictaion investisseur<a href="#" class="go-top"><i class="icon-angle-up"></i></a></div>
-      </footer>
+      </footer>-->
 <!--footer end-->
     <!-- js placed at the end of the document so the pages load faster -->
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->

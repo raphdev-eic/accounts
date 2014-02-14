@@ -282,7 +282,11 @@ class User extends AppModel {
 	    'rule2username'=>array(
 	          'rule'=> array('between', 5, 10),
 	          'message' => 'Le username doit avoir une longueur comprise entre 5 et 10 caractères.'
-	    	)
+	    	),
+	    'rule3username'=>array(
+	    	  'rule'=>"alphaNumeric",
+	    	  'message'=>"Le nom doit seulement comporter des caractères alphanumeriques"
+	        ),
     ),
     'password'=>array(
 	        'rule'=>'notEmpty',

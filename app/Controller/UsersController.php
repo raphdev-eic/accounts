@@ -40,7 +40,7 @@ class UsersController extends AppController{
 
 	public function statuteBook(){
 	  if(!empty($this->request->data)){
-	      //verifie si la methone d'envoi de code est post
+	      //verifie si la methode d'envoi de code est post
 		  if($this->request->is('get')){
 		  	throw new BadRequestException("Le Type de requete d'envoi du code est interdit", 400);
 		  }

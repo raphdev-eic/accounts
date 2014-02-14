@@ -31,11 +31,11 @@
          <?php echo $this->fetch('content'); ?>
   </section>
       <!--footer start-->
-      <footer>
+      <!--<footer>
         <div class="text-center">Copyright <?php echo date('Y'); ?> &copy;
          EiC Corporation. Tous droits réservés | Centre d'assistance des investisseurs | <a href="#">conditions d'utilisation</a>  | <a href="#">Engagement de confidentialité</a>
        </div>
-      </footer>
+      </footer>-->
       <!--footer end-->
     <!-- js placed at the end of the document so the pages load faster -->
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->

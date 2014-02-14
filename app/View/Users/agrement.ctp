@@ -197,10 +197,10 @@
                         </div>
                       </div>
                       <div>
-                        <a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'signin')); ?>" class="btn btn-info pull-right ">Approuver et continuer</a>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'signin')); ?>" class="btn btn-info pull-right ">Approuvez et continuez</a>
                       </div>
                 </div>
 
           </section>
         </div>
-     <!--end form-->	
+     <!--end form-->

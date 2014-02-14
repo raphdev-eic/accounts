@@ -77,9 +77,9 @@
  * @see ErrorHandler for more information on exception handling and configuration.
  */
 	Configure::write('Exception', array(
-	    'handler' => 'ErrorHandler::handleException',
-	    'renderer' => 'AppExceptionRenderer',
-	    'log' => true
+		'handler' => 'ErrorHandler::handleException',
+		'renderer' => 'ExceptionRenderer',
+		'log' => true
 	));
 
 /**
@@ -269,7 +269,7 @@
  * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.
  */
-	date_default_timezone_set('UTC');
+	//date_default_timezone_set('UTC');
 
 /**
  *

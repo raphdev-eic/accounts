@@ -15,14 +15,14 @@
                     </ul>
                 </div>
                 <div class="panel-body panel-primary">
-                    <div class="panel-heading">Creer vos accès | EiC Corporation</div>
+                    <div class="panel-heading">Créez vos accès | EiC Corporation</div>
                     <div class="panel-body col-md-offset-2">
                     <?php echo $this->Form->create('User',array('class'=>'form-horizontal'));?>
                        <?php echo $this->Form->input('status',array('type'=>'hidden')); ?>
                         <div class="form-group">
                             <label  class="col-lg-3 control-label">Nom d'utilisateur</label>
                             <div class="col-lg-6">
-                              <?php echo $this->Form->input('username',array('class'=>'form-control','id'=>'userUsername','label'=>false)); ?>
+                              <?php echo $this->Form->input('username',array('class'=>'form-control','id'=>'userUsername','label'=>false)); ?> <small>Entrez un caractère alphanumériques sans espace</small>
                              </div>
                         </div>
                         <div class="form-group">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                          <label  class="col-lg-3 control-label">Retapez votre mot de passe</label>
+                          <label  class="col-lg-3 control-label">Saisissez à nouveau votre mot de passe</label>
                             <div class="col-lg-6">
                               <?php echo $this->Form->input('pass',array('class'=>'form-control','id'=>'userPass','type'=>'password','label'=>false
                               )); 
@@ -40,7 +40,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                          <label  class="col-lg-3 control-label">Domaine</label>
+                          <label  class="col-lg-3 control-label">Votre domaine d'activité</label>
                             <div class="col-lg-6">
                               <?php echo $this->Form->input('domaine_id',array('class'=>'form-control','id'=>'userPass','label'=>false,'options'=>$listDomaine)); 
                               ?>

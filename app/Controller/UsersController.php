@@ -7,6 +7,7 @@ class UsersController extends AppController{
 
 	public function beforeFilter(){
 		parent::beforeFilter();
+    $this->Auth->allow('CookieCheck');
 		$this->Auth->allow(array('statuteBook','iforget','iforgetChangePass'));
 		if($this->Auth->loggedIn()){
 			$this->Auth->allow('CookieCheck');
@@ -110,7 +111,9 @@ class UsersController extends AppController{
 			$this->layout = 'default';
 	        //liste deroulante des pays et domaine
 	        $listDomaine = $this->User->listDomaine();
-	        $this->set(compact('listDomaine'));
+          $listCity = $this->User->ListCity();
+          $country = $this->User->ListCountry();
+	        $this->set(compact('listDomaine','listCity','country'));
 
 	        if(!empty($this->request->data)){
 	        	if($this->request->is('post')){

@@ -1,32 +1,56 @@
-<?php echo $this->assign('title','Comptes EiC'); ?>
-<?php echo $this->start('button-content'); ?>
-      <!--header start-->
-      <header class="header white-bg">
-          <div class="sidebar-toggle-box">
-              <div data-original-title="Services EiC corporation" data-placement="right" class="tooltips"> <?php echo $this->Html->image('icon.png');?></div>
-          </div>
-          <!--logo start-->
-          <a href="http://www.eic-corporation.com" class="logo" >EiC <span>Corporation</span></a>
-          <!--logo end-->
-          <div class="top-nav">
-              <ul class="nav pull-right top-menu">
-                <span>Vous n'avez pas encore activé votre compte ? cliquez ici  </span><a href="<?php echo $this->Html->url(array('action'=>'statuteBook')); ?>" class="btn btn-danger">Code investisseur</a>
-              </ul>
-          </div>
-      </header>
-      <!--header end-->
-<?php echo $this->end(); ?>
-         <?php echo $this->Session->flash();?>
-         <h2 class="alingcenter">Centre d'authentification investisseur EiC</h2>
-        <?php echo $this->Html->image('icon_auth.png',array('class'=>'icon-auth')); ?>
-      	<?php echo $this->Form->create('User',array('class'=>'form-signin','inputDefaults'=>array('div'=>false,'label'=>false))); ?>
-        <h2 class="form-signin-heading">Connectez à votre compte EiC</h2>
-        <div class="login-wrap">
-            <?php echo $this->Form->input('User.email',array('class'=>'form-control','placeholder'=>'Adresse email','label'=>false,'autofocus')); ?>
-            <?php echo $this->Form->input('User.password',array('class'=>'form-control','placeholder'=>'Mot de passe','label'=>false));?>
-            <label class="checkbox">
-                <span class="pull-right"><strong><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'iforget')); ?>"> Vous avez un soucis?</a></strong></span>
-            </label>
-            <?php echo $this->Form->button('connexion',array('class'=>'btn btn-lg btn-login btn-block')); ?>
-        </div>
-       <?php echo $this->Form->end(); ?>
+<section class="login_header">
+	<div class="grid">
+		<div class="col_12">
+			<div class="col_6">
+				<a href="http://www.eic-corporation.com">
+					<?php echo $this->Html->image('logo_s.png',array('alt'=>'eic corptoration logo')); ?> <span class="log_text">EiC Corporation</span>
+				</a>
+			</div>
+			<div class="col_6">
+				<span class="liens"><a href="#">Comment adhére au résaux d’investisseur EiC ?  </a>| <a href="#"> Centre d’aide </a></span>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</section>
+<section class="login_content">
+	<div class="grid">
+		<div class="col_12">
+			<div class="col_6">
+				<div class="bloc_text">
+					<p>Investir en Bourse, c’est transformer nos idées de projets en une réalité. Rejoingnez dès maintenant Notre Réseau d’investisseurs privés
+					</p>
+				</div>
+				<?php echo $this->Html->image('login_img.jpg',array('alt'=>'eic corptoration brand')); ?>
+			</div>
+			<div class="col_6">
+			 <!--key form-->
+			 <h6 class="tcolor">Premier pas sur notre plateforme en tant qu’investisseur ?</h6>
+			 <?php echo $this->Form->create('User',array('inputDefaults'=>array('div'=>false))); ?>
+			 <?php echo $this->Form->input('key',array('placeholder'=>'Entrez votre code','label'=>false,'class'=>'col_7 ht')); ?>
+             <?php echo $this->Form->button('Valider',array('class'=>'button orange')); ?>
+             <?php echo $this->Form->end(); ?>
+             <!--end key form-->
+             <hr>
+             <!--login form-->
+             <h6 class="tcolor">Déja Membre de notre Corporation d’investisseurs ?</h6>
+                <?php echo $this->Form->create('User'); ?>
+		            <?php echo $this->Form->input('User.email',array('class'=>'col_7_1 ht','placeholder'=>'Adresse email','label'=>false)); ?>
+			           <span><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'iforget')); ?>">Mot de passe oublier</a>
+			           </span>
+		            <?php echo $this->Form->input('User.password',array('class'=>'col_7_1 ht','placeholder'=>'Mot de passe','label'=>false));?>
+			           <div class="col_6 tcolor">
+				           	<small>
+								En cliquant sur Connexion, vous acceptez nos Conditions et indiquez que vous avez lu notre Politique d’utilisation des données, y compris notre Utilisation des cookies.
+				           	</small>
+			           </div>
+		           <div class="pull-right col_7_1">
+                      <?php echo $this->Form->button('Connexion',array('class'=>'blue')); ?>
+		           </div>
+                <?php echo $this->Form->end(); ?>
+             <!--end login form-->
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</section>

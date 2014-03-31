@@ -26,7 +26,7 @@ class AppController extends Controller {
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-		if($this->Cookie->check('EicAuth')){
+		if($this->Cookie->check('EicAuth') && ($this->Cookie->read('EicAuth') != "")){
 			$this->redirect(Configure::read('apps'));
         }
 	}

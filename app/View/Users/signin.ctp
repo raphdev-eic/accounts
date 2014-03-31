@@ -35,14 +35,35 @@
                           <label  class="col-lg-3 control-label">Saisissez à nouveau votre mot de passe</label>
                             <div class="col-lg-6">
                               <?php echo $this->Form->input('pass',array('class'=>'form-control','id'=>'userPass','type'=>'password','label'=>false
-                              )); 
+                              ));
                               ?>
                             </div>
                         </div>
                         <div class="form-group">
                           <label  class="col-lg-3 control-label">Votre domaine d'activité</label>
                             <div class="col-lg-6">
-                              <?php echo $this->Form->input('domaine_id',array('class'=>'form-control','id'=>'userPass','label'=>false,'options'=>$listDomaine)); 
+                              <?php echo $this->Form->input('domaine_id',array('class'=>'form-control','id'=>'domaine_id','label'=>false,'options'=>$listDomaine));
+                              ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label  class="col-lg-3 control-label">Genre</label>
+                            <div class="col-lg-6">
+                              <?php echo $this->Form->input('sexe',array('class'=>'form-control','id'=>'sexe','label'=>false,'options'=>array('1'=>'Masculin','2'=>'Feminin')));
+                              ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label  class="col-lg-3 control-label">Genre</label>
+                            <div class="col-lg-6">
+                              <?php echo $this->Form->input('city_id',array('class'=>'form-control','id'=>'city_id','label'=>false,'options'=>$listCity));
+                              ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <label  class="col-lg-3 control-label">Genre</label>
+                            <div class="col-lg-6">
+                              <?php echo $this->Form->input('city_id',array('class'=>'form-control','id'=>'city_id','label'=>false,'options'=>$country));
                               ?>
                             </div>
                         </div>

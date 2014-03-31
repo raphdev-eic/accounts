@@ -1,64 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <?php echo $this->Html->charset('utf-8'); ?>
-    <?php echo $this->Html->meta('viewport','width=device-width, initial-scale=1.0'); ?>
-    <?php echo $this->Html->meta('description','eic corporation app , service eic, platform eic , ivoire invest'); ?>
-    <?php echo $this->Html->meta('author','eic corporation'); ?>
-    <?php echo $this->Html->meta('keyword','dashboard eic corporation, platform'); ?>
-    <?php echo $this->Html->meta('favicon.ico','/img/favicon.png',array('type' => 'icon')); ?> 
-    <title><?php echo $this->fetch('title'); ?></title>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap core CSS -->
-    <?php echo $this->Html->css('bootstrap.min'); ?>
-    <?php echo $this->Html->css('bootstrap-reset'); ?>
-     <!--external css-->
-    <?php echo $this->Html->css('assets/font-awesome/css/font-awesome'); ?>
-    <!-- Custom styles for this template -->
-    <?php echo $this->Html->css('style'); ?>
-    <?php echo $this->Html->css('style-responsive'); ?>
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
 
-    <?php echo $this->fetch('css'); ?>
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
-    <!--[if lt IE 9]>
-     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <?php echo $this->Html->script('respond.min'); ?>
-    <![endif]-->
-  </head>
-   <body class="body-default">
-  <section id="main-content">
-         <?php echo $this->fetch('content'); ?>
-  </section>
-      <!--footer start-->
-      <!--<footer>
-        <div class="text-center">Copyright <?php echo date('Y'); ?> &copy;
-         EiC Corporation. Tous droits réservés | Centre d'assistance des investisseurs | <a href="#">conditions d'utilisation</a>  | <a href="#">Engagement de confidentialité</a>
-       </div>
-      </footer>-->
-      <!--footer end-->
-    <!-- js placed at the end of the document so the pages load faster -->
-    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<!--<script>window.jQuery || document.write("<?php //echo $this->Html->script('jquery');?>")</script>-->
-	<?php echo $this->Html->script('bootstrap.min'); ?>
-  <?php echo $this->Html->script('jquery.dcjqaccordion.2.7'); ?>
-	<?php echo $this->Html->script('jquery.scrollTo.min'); ?>
-	<?php echo $this->Html->script('jquery.nicescroll'); ?>
-	<?php echo $this->Html->script('assets/gritter/js/jquery.gritter'); ?>
-    <script scr="//cdnjs.cloudflare.com/ajax/libs/holder/2.0/holder.min.js"></script>
-    <!--common script for all pages-->
-    <?php echo $this->Html->script('common-scripts'); ?>
-    <?php echo $this->Html->script('gritter'); ?>
-    <?php echo $this->Html->script('main'); ?>
-    <?php echo $this->fetch('script'); ?>
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		  ga('create', 'UA-46080775-1', 'eic-corporation.com');
-		  ga('send', 'pageview');
-		</script>
- </body>
+        <div class="header-container">
+            <header class="wrapper clearfix">
+                <h1 class="title">h1.title</h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">nav ul li a</a></li>
+                        <li><a href="#">nav ul li a</a></li>
+                        <li><a href="#">nav ul li a</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+                    <header>
+                        <h1>article header h1</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
+                    </header>
+                    <section>
+                        <h2>article section h2</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+                    </section>
+                    <section>
+                        <h2>article section h2</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
+                    </section>
+                    <footer>
+                        <h3>article footer h3</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor.</p>
+                    </footer>
+                </article>
+
+                <aside>
+                    <h3>aside</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices.</p>
+                </aside>
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        <div class="footer-container">
+            <footer class="wrapper">
+                <h3>footer</h3>
+            </footer>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <?php echo $this->fetch('script'); ?>
+          <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-46080775-1', 'eic-corporation.com');
+            ga('send', 'pageview');
+          </script>
+    </body>
 </html>

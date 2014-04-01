@@ -21,7 +21,7 @@
 					<p>Investir en Bourse, c’est transformer nos idées de projets en une réalité. Rejoingnez dès maintenant Notre Réseau d’investisseurs privés
 					</p>
 				</div>
-				<?php echo $this->Html->image('login_img.jpg',array('alt'=>'eic corptoration brand')); ?>
+				<?php echo $this->Html->image('login_img.jpg',array('alt'=>'eic corptoration brand','class'=>'brand_img')); ?>
 			</div>
 			<div class="col_6">
 			 <!--key form-->
@@ -36,8 +36,8 @@
              <h6 class="tcolor">Déja Membre de notre Corporation d’investisseurs ?</h6>
                 <?php echo $this->Form->create('User'); ?>
 		            <?php echo $this->Form->input('User.email',array('class'=>'col_7_1 ht','placeholder'=>'Adresse email','label'=>false)); ?>
-			           <span><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'iforget')); ?>">Mot de passe oublier</a>
-			           </span>
+			           <small><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'iforget')); ?>">Mot de passe oublier</a>
+			           </small>
 		            <?php echo $this->Form->input('User.password',array('class'=>'col_7_1 ht','placeholder'=>'Mot de passe','label'=>false));?>
 			           <div class="col_6 tcolor">
 				           	<small>

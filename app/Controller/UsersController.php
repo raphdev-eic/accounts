@@ -7,15 +7,15 @@ class UsersController extends AppController{
 
 	public function beforeFilter(){
 		parent::beforeFilter();
-    $this->Auth->allow('CookieCheck');
-		$this->Auth->allow(array('statuteBook','iforget','iforgetChangePass'));
-		if($this->Auth->loggedIn()){
-			$this->Auth->allow('CookieCheck');
-		}
+      $this->Auth->allow('CookieCheck');
+  		$this->Auth->allow(array('statuteBook','iforget','iforgetChangePass','LoginError','CodeError'));
+  		if($this->Auth->loggedIn()){
+  			$this->Auth->allow('CookieCheck');
+  		}
 
-		if($this->Session->check('IdUser')){
-		   $this->Auth->allow('signin','agrement','info');
-		}
+  		if($this->Session->check('IdUser')){
+  		   $this->Auth->allow('signin','agrement','info');
+  		}
 	}
 
 	/**
@@ -24,14 +24,19 @@ class UsersController extends AppController{
 	 */
     public function login() {
         if($this->request->is('post')){
-           $user = $this->Auth->identify($this->request, $this->response);
-           if($user){
-               $this->Session->write('Auth.User', $user);
-               return $this->redirect(array('controller' => 'Users', 'action' => 'CookieCheck'));
-           }else{
-	        $this->Session->setFlash("<h5><strong> Veuillez confirmer votre mot de passe. </strong><h5><br/> Le mot de passe ou l'adresse email que vous avez saisi est incorrect. Veuillez réessayer ? (Ou vérifier si votre compte est déja activé...)",'error');
-           }
-       }
+            $user = $this->Auth->identify($this->request, $this->response);
+
+            if($user){
+
+                $this->Session->write('Auth.User', $user);
+                return $this->redirect(array('controller' => 'Users', 'action' => 'CookieCheck'));
+
+            }else{
+
+  	            $this->Session->setFlash("<h5><strong> Veuillez confirmer votre mot de passe. </strong><h5><br/> Le mot de passe ou l'adresse email que vous avez saisi est incorrect. Veuillez réessayer ? (Ou vérifier si votre compte est déja activé...)",'error');
+
+            }
+        }
     }
 
     /**
@@ -66,6 +71,20 @@ class UsersController extends AppController{
 		   }
 		}
 	}
+
+/**
+ * [LoginError page d'erreur du login]
+ */
+  public function LoginError(){
+
+  }
+
+/**
+ * [CodeError page d'erreur du code]
+ */
+  public function CodeError(){
+
+  }
 
 	/**
 	 * page de lecture des conditions d'utilisation
